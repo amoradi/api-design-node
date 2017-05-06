@@ -1,14 +1,15 @@
 var app = require('./server');
 var request = require('supertest');
 var expect = require('chai').expect;
+var colors = require('colors');
 
 // TODO: make tests for the other CRUD routes
 // DELETE, UPDATE, PUT, GET ONE
 // to run the test type mocha server/specs.js
 
-describe('[LIONS]', function(){
+describe('LIONS'.magenta, function(){
 
-  var id = 0;
+  beforeEach(() => console.log(`#--------------------`));
 
   // get all lions
   it('should get all lions', function(done) {
