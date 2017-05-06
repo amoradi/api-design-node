@@ -13,16 +13,17 @@ app.use(morgan('dev'))
 app.use(express.static('client'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-// this is called mounting. when ever a req comes in for
-// '/lion' we want to use this router
+
+// mount requests to routers
 app.use('/lions', lionRouter);
+app.use('/tigers', tigerRouter);
 
 app.use(function(err, req, res, next) {
   if (err) {
-    res.status(500).send(error);
+    console.log(err.message);
+    res.status(500).send(err);
   }
 });
 
-
-app.listen(3000);
-console.log('on port 3000');
+app.listen(4000);
+console.log('on port 4000');
